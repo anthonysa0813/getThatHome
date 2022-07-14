@@ -7,7 +7,6 @@ const GetHomeApp = () => {
   return (
     <BrowserRouter>
       <LandingRoutes />
-      <Header />
     </BrowserRouter>
   );
 };

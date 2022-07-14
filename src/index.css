@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 :root {
   --color-dark: #616161;
   --color-pink100: #f48fb1;
@@ -5,6 +9,7 @@
   --bg-pink: rgba(244, 143, 177, 0.15);
   --bg-gray100: #f5f5f6;
   --bg-white: #ffffff;
+  --color-white: #ffffff;
 }
 
 body {
@@ -19,4 +24,35 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.debug {
+  border: 3px solid brown;
+}
+
+.bg-white {
+  color: var(--color-pink100);
+  background-color: var(--color-white);
+}
+
+.bg-pink {
+  background-color: var(--color-pink100);
+  color: var(--color-white);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.wrapper {
+  width: 1296px;
+  margin: 0 auto;
+}
+
+.py-1 {
+  padding-block: 1rem !important;
+}
+
+.px-2 {
+  padding-inline: 1.5rem !important;
 }

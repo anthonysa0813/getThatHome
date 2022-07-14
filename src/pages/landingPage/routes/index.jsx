@@ -1,9 +1,10 @@
 import { Route, Routes } from "react-router-dom";
+import MainPage from "./MainPage";
 
 const LandingRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={<h1>LandingPage :D</h1>} />
+      <Route path="/" element={<MainPage/>} />
     </Routes>
   );
 };
