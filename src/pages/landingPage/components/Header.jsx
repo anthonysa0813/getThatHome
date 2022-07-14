@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { HeaderContainer } from "../styles/header";
 
 const Header = () => {
-  return <HeaderContainer>Header</HeaderContainer>;
+  return <HeaderContainer></HeaderContainer>;
 };
 
 export default Header;
