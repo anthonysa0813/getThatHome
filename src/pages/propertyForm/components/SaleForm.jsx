@@ -1,19 +1,28 @@
-import Button from "../../landingPage/components/Button"
+import Button from "../../landingPage/components/Button";
+import { Form } from "../styles/Form";
 
 function SaleForm(){
   return(
-    <form>
-      <label>ADDRESS</label>
-      <input placeholder='start typing to autocomplete'></input>
+    <Form>
+      <div className='text-box'>
+        <label>ADDRESS</label>
+        <input className='address' placeholder='start typing to autocomplete'></input>
+      </div>
 
-      <label>PRICE</label>
-      <input placeholder='2000'></input>
+      <div className='text-box'>
+        <label>PRICE</label>
+        <input className='prices' placeholder='2000'></input>
+      </div>
 
-      <label>PROPERTY TYPE</label>
-      <input name='property_type' type='radio' value='Apartment'/>
-      <label>Apartment</label>
-      <input name='property_type' type='radio' value='House'/>
-      <label>House</label>
+      <div className='radio-box-container'>
+        <label className="title">PROPERTY TYPE</label>
+        <div className='radio-box'>
+          <input id='Apartment' name='property-type' type='radio' value='Apartment'/>
+          <label htmlFor="Apartment">Apartment</label>
+          <input id='House' name='property-type' type='radio' value='House'/>
+          <label htmlFor='House'>House</label>
+        </div>
+      </div>
 
       <div>
         <label>BEDROOMS</label>
@@ -47,7 +56,7 @@ function SaleForm(){
 
       <Button text='PUBLISH PROPERTY LISTING'/>
 
-    </form>
+    </Form>
   )
 }
 
