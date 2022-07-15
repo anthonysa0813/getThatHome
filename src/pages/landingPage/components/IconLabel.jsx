@@ -5,7 +5,7 @@ function IconLabel(props) {
   return (
     <IconBox>
       <i className={iconList[props.icon]}></i>
-      <div>{props.text}</div>
+      <p>{props.text}</p>
     </IconBox>
   );
 }

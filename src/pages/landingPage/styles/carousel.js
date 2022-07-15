@@ -7,13 +7,31 @@ export const CarouselContainer = styled.div`
 export const CardContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  column-gap: 48px;
+  column-gap: 86px;
+  row-gap: 32px;
+  margin-block: 1rem;
 `;
 
 export const Card = styled.div`
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  background-color: var(--color-white);
+  border-bottom: 7px solid #bf5f82;
+  position: relative;
+  .operationType {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: white;
+    background-color: var(--color-pink100);
+    padding: 4px 10px;
+    border-top-right-radius: 8px;
+  }
   .cardImage img {
     width: 100%;
     object-fit: cover;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
   }
   .cardBody {
     padding: 10px;

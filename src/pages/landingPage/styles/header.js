@@ -2,14 +2,29 @@ import styled from "styled-components";
 
 export const HeaderContainer = styled.header`
   display: flex;
+  /* position: fixed;
+  top: 0;
+  left: 0;
+  right: 0; */
+  background-color: var(--color-white);
   justify-content: space-between;
   padding-inline: 152px;
   padding-block: 16px;
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  margin-block-end: 2rem;
+  /* box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); */
+  .actionsContainer {
+    display: flex;
+    column-gap: 1.5rem;
+    align-items: center;
+  }
+  p {
+    margin: 0;
+    display: inline-block;
+    margin-left: 0.5rem;
+  }
 `;
 
 export const StyledButton = styled.button`
-  padding: 0;
   border: none;
   border-radius: 8px;
 `;
