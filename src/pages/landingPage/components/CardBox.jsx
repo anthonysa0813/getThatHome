@@ -1,22 +1,30 @@
 import { Card, DirBox, ExtraInfo } from "../styles/carousel";
 import IconLabel from "./IconLabel";
 
-function CardBox(props) {
-  function PetBox() {
-    if (props.pets == "true") {
-      return <IconLabel icon="pets" />;
-    }
-  }
+function CardBox({ property }) {
+  const {
+    montly_price,
+    property_type,
+    bedrooms_count,
+    bathroom_count,
+    area,
+    pets_allowed,
+    photo,
+    operation_type,
+  } = property;
 
   return (
     <Card>
+      <span className="operationType">
+        {operation_type === "rent" ? "For Rental" : "For Sale"}
+      </span>
       <div className="cardImage">
-        <img src="src/assets/images/Property-1.png"></img>
+        <img src={photo}></img>
       </div>
       <div className="cardBody">
         <div className="card-head">
-          <IconLabel icon="dollar" text={props.price} />
-          <IconLabel icon="building" text={props.property} />
+          <IconLabel icon="dollar" text={montly_price} />
+          <IconLabel icon="building" text={property_type} />
         </div>
         <DirBox>
           86872 Jacob Gateway,
@@ -24,10 +32,10 @@ function CardBox(props) {
           Durganport, WV 48044
         </DirBox>
         <ExtraInfo>
-          <IconLabel icon="beds" text={props.beds} />
-          <IconLabel icon="bathroom" text={props.bathroom} />
-          <IconLabel icon="area" text={props.area + "m2"} />
-          {PetBox()}
+          <IconLabel icon="beds" text={bedrooms_count} />
+          <IconLabel icon="bathroom" text={bathroom_count} />
+          <IconLabel icon="area" text={area + "m2"} />
+          {pets_allowed && <IconLabel icon="pets" />}
         </ExtraInfo>
       </div>
     </Card>

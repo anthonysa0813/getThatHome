@@ -1,12 +1,14 @@
+import { Link } from "react-router-dom";
 import { iconList } from "../../../assets/icons/iconList";
 import { StyledButton } from "../styles/header";
 
 function Button({ color, text, iconName = "", extraClass = "" }) {
-  console.log();
   return (
     <StyledButton className={`bg-${color} ${extraClass}`}>
-      <i className={iconList[iconName]}></i>
-      {text}
+      <Link to="/register">
+        <i className={iconList[iconName]}></i>
+        {text}
+      </Link>
     </StyledButton>
   );
 }
