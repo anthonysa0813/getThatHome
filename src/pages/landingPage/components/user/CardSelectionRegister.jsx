@@ -1,11 +1,23 @@
 import React from "react";
 import { CardSelection } from "../../styles/Users";
 
-const CardSelectionRegister = ({ image, title, subtitle, setShowForm }) => {
+const CardSelectionRegister = ({
+  setTypeUser,
+  image,
+  title,
+  subtitle,
+  setShowForm,
+  type,
+}) => {
   const showForm = () => {
     setShowForm((showForm) => {
       return !showForm;
     });
+    if (type === "seeker") {
+      setTypeUser("seeker");
+    } else {
+      setTypeUser("landlord");
+    }
   };
 
   return (
