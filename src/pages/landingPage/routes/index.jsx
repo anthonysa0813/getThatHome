@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import SearchProperties from "../components/SearchProperties";
 import UserPage from "../components/user/UserPage";
+// import PropertyFormPage from "../../propertyForm/routes/PropertyFormPage";
 import MainPage from "./MainPage";
 
 const LandingRoutes = () => {
@@ -22,6 +23,8 @@ const LandingRoutes = () => {
           <SearchProperties setShowModal={setShowModal} showModal={showModal} />
         }
       />
+      {/* <Route path="/" element={<MainPage/>} />
+      <Route path="/property" element={<PropertyFormPage/>}/> */}
     </Routes>
   );
 };
