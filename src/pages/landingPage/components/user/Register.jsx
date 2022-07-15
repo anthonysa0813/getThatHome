@@ -29,7 +29,7 @@ const Register = () => {
                   subtitle="You want to rent or sell a home"
                   setShowForm={setShowForm}
                   setTypeUser={setTypeUser}
-                  type="seeker"
+                  type="landlord"
                 />
                 <CardSelectionRegister
                   image={seekerImage}
@@ -37,7 +37,7 @@ const Register = () => {
                   subtitle="You want to find a home"
                   setShowForm={setShowForm}
                   setTypeUser={setTypeUser}
-                  type="landlord"
+                  type="seeker"
                 />
               </div>
             </>

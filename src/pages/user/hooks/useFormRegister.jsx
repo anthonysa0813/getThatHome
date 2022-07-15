@@ -1,31 +1,45 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { createAccount } from "../../../helper/fetchFunctions";
+import { UserContext } from "../context/UserContext";
 
-const useFormRegister = (initialState, typeUser) => {
-  const [form, setForm] = useState(initialState);
+const useFormRegister = (formUser, typeUser, setForm) => {
   const [error, setError] = useState(false);
   const [userData, setUserData] = useState({});
   const routePath = typeUser === "seeker" ? "seeker/signup" : "landlord/signup";
+  const { user, setUser } = useContext(UserContext);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value,
+    setForm((form) => {
+      return {
+        ...form,
+        [e.target.name]: e.target.value,
+      };
     });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (Obejct.values(form).includes("")) {
+    if (Object.values(formUser).includes("")) {
       console.log("Todos los campos son requeridos...");
       setError(true);
       return;
     }
-    createAccount(form, routePath).then((res) => setUserData(res));
+    createAccount(formUser, routePath).then((res) => {
+      console.log(res);
+      const { token, ...userResponse } = res;
+      setUser(userResponse);
+      sessionStorage.setItem("token", token);
+      if (token) {
+        navigate("/properties");
+      }
+      setUserData(res);
+    });
   };
 
-  return { userData, error, handleChange, handleSubmit, formUser };
+  return { userData, error, handleChange, handleSubmit };
 };
 
 export default useFormRegister;
