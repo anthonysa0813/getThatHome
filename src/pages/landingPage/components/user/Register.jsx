@@ -7,13 +7,14 @@ import FormRegister from "./FormRegister";
 
 const Register = () => {
   const [showForm, setShowForm] = useState(false);
+  const [typeUser, setTypeUser] = useState("");
 
   return (
     <RegisterContainer>
       <div className="hero">
         <div className="wrapper ">
           {showForm ? (
-            <FormRegister />
+            <FormRegister typeUser={typeUser} />
           ) : (
             <>
               {" "}
@@ -27,12 +28,16 @@ const Register = () => {
                   title="Landlord"
                   subtitle="You want to rent or sell a home"
                   setShowForm={setShowForm}
+                  setTypeUser={setTypeUser}
+                  type="seeker"
                 />
                 <CardSelectionRegister
                   image={seekerImage}
                   title="Home seeker"
                   subtitle="You want to find a home"
                   setShowForm={setShowForm}
+                  setTypeUser={setTypeUser}
+                  type="landlord"
                 />
               </div>
             </>
