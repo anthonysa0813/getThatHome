@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
+import PropertyByIdPage from "../../propertyForm/components/pages/PropertyByIdPage";
 import SearchProperties from "../components/SearchProperties";
 import UserPage from "../components/user/UserPage";
 // import PropertyFormPage from "../../propertyForm/routes/PropertyFormPage";
@@ -23,6 +24,7 @@ const LandingRoutes = () => {
           <SearchProperties setShowModal={setShowModal} showModal={showModal} />
         }
       />
+      <Route path="/properties/:id" element={<PropertyByIdPage />} />
       {/* <Route path="/" element={<MainPage/>} />
       <Route path="/property" element={<PropertyFormPage/>}/> */}
     </Routes>

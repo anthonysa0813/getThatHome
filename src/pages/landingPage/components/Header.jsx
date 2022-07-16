@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { HeaderContainer } from "../styles/header";
 import Button from "./Button";
+import logo from "../../../assets/images/Logo.png";
 
 const Header = ({ setShowModal }) => {
   const showModalFunc = () => {
@@ -12,7 +13,7 @@ const Header = ({ setShowModal }) => {
   return (
     <HeaderContainer className="">
       <Link to="/" className="headerImage ">
-        <img src="src/pages/landingPage/components/Logo.png" alt=""></img>
+        <img src={logo} alt=""></img>
       </Link>
       <div className="actionsContainer ">
         <Link to="/properties">

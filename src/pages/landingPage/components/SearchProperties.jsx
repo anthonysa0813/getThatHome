@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { getApi } from "../../../helper/fetchFunctions";
+import { PropertyContext } from "../../user/context/PropertiesContext";
 import { CardContainer } from "../styles/carousel";
 import { Modal } from "../styles/Users";
 import CardBox from "./CardBox";
@@ -8,9 +9,13 @@ import LoginForm from "./user/LoginForm";
 
 const SearchProperties = ({ setShowModal, showModal }) => {
   const [properties, setProperties] = useState([]);
+  const { propertiesArr, setPropertiesArr } = useContext(PropertyContext);
 
   useEffect(() => {
-    getApi("properties").then((res) => setProperties(res));
+    getApi("properties").then((res) => {
+      setPropertiesArr(res);
+      setProperties(res);
+    });
   }, []);
 
   return (

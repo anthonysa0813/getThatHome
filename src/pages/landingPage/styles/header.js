@@ -10,8 +10,8 @@ export const HeaderContainer = styled.header`
   justify-content: space-between;
   padding-inline: 152px;
   padding-block: 16px;
-  margin-block-end: 2rem;
-  /* box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); */
+  /* margin-block-end: 0.25rem; */
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
   .actionsContainer {
     display: flex;
     column-gap: 1.5rem;
