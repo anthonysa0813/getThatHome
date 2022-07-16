@@ -19,9 +19,23 @@ export const LoginFormContainer = styled.form`
   display: flex;
   flex-direction: column;
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
-  height: 270px;
+  height: 300px;
   width: 400px;
   gap: 0.5rem;
+  position: relative;
+  .close {
+    position: absolute;
+    top: calc(-15px);
+    right: calc(-15px);
+    width: 30px;
+    height: 30px;
+    background-color: var(--dark-pink);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: white;
+  }
   .field {
     display: flex;
     flex-direction: column;

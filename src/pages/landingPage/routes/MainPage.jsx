@@ -9,11 +9,12 @@ import { Modal } from "../styles/Users";
 import Search from "./Search";
 
 function MainPage({ setShowModal, showModal }) {
+  console.log({ setShowModal });
   return (
     <>
       {showModal ? (
         <Modal className="modal">
-          <LoginForm />
+          <LoginForm setShowModal={setShowModal} showModal={showModal} />
         </Modal>
       ) : (
         <>

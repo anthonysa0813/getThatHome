@@ -22,7 +22,7 @@ const SearchProperties = ({ setShowModal, showModal }) => {
     <>
       {showModal ? (
         <Modal className="modal">
-          <LoginForm />
+          <LoginForm setShowModal={setShowModal} showModal={showModal} />
         </Modal>
       ) : (
         <>
