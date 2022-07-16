@@ -3,20 +3,31 @@ import { useParams } from "react-router-dom";
 import Header from "../../../landingPage/components/Header";
 import { PropertyByIdContainer } from "../../../landingPage/styles/PropertiesStyles";
 import { PropertyContext } from "../../../user/context/PropertiesContext";
+import AgentBox from "../AgentBox";
 
 const PropertyByIdPage = () => {
   const { id } = useParams();
   const { propertiesArr, setPropertiesArr } = useContext(PropertyContext);
   const [propertyId, setPropertyId] = useState({});
-  console.log(propertiesArr);
+  const [agentId, setAgentId] = useState({});
+
   useEffect(() => {
     const filterArr = propertiesArr.filter((property) => {
       if (property.id === Number(id)) {
+        const { user_id } = property;
+        getAgent(user_id).then((agent) => setAgentId(agent));
         return property;
       }
     });
     setPropertyId(filterArr[0]);
   }, []);
+
+  const getAgent = async (id) => {
+    const response = await fetch(`http://localhost:3000/landlord/${id}`);
+    const data = await response.json();
+    console.log(data);
+    return data;
+  };
 
   return (
     <>
@@ -68,7 +79,9 @@ const PropertyByIdPage = () => {
               <p>{propertyId.address}</p>
             </div>
           </div>
-          <div className="col2"></div>
+          <div className="col2 p-2">
+            <AgentBox agent={agentId} />
+          </div>
         </PropertyByIdContainer>
       </div>
     </>

@@ -7,7 +7,8 @@ import { UserContext } from "../../user/context/UserContext";
 
 const Header = ({ setShowModal }) => {
   const { user, setUser } = useContext(UserContext);
-  const { name } = user;
+  const { name, type } = user;
+
   const userActive = Boolean(name);
   const token = sessionStorage.getItem("token");
 
@@ -39,13 +40,23 @@ const Header = ({ setShowModal }) => {
               <i className="icon-logout"></i>
               LOGOUT
             </button>
-            <button
-              className="btn bg-pink border-radius"
-              onClick={showModalFunc}
-            >
-              <i className="icon-filledheart"></i>
-              SAVE PROPERTIES
-            </button>
+            {type === "Landlord" ? (
+              <button
+                className="btn bg-pink border-radius"
+                onClick={showModalFunc}
+              >
+                <i className="icon-home"></i>
+                MY PROPERTIES
+              </button>
+            ) : (
+              <button
+                className="btn bg-pink border-radius"
+                onClick={showModalFunc}
+              >
+                <i className="icon-filledheart"></i>
+                SAVE PROPERTIES
+              </button>
+            )}
             <button
               className="btn bg-pink border-radius"
               onClick={showModalFunc}
