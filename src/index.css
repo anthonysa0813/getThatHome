@@ -54,6 +54,17 @@ p {
   background-color: var(--color-pink100);
   color: var(--color-white);
   padding: 10px;
+  display: flex;
+  align-items: center;
+  column-gap: 0.25rem;
+}
+.bg-white {
+  background-color: var(--color-white);
+  color: var(--color-dark);
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  column-gap: 0.25rem;
 }
 
 .text-center {
@@ -79,4 +90,12 @@ mr-1 {
 
 mt-1 {
   margin-block-start: 1rem;
+}
+
+.alert-danger {
+  border: 1px solid var(--color-pink100);
+  color: var(--color-pink100);
+  padding: 0.5rem;
+  text-align: center;
+  border-radius: 0.5rem;
 }

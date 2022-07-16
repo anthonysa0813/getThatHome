@@ -5,11 +5,12 @@ import LoginForm from "./LoginForm";
 import Register from "./Register";
 
 const UserPage = ({ setShowModal, showModal }) => {
+  console.log({ setShowModal });
   return (
     <>
       {showModal ? (
-        <Modal className="modal">
-          <LoginForm />
+        <Modal className="modal ">
+          <LoginForm setShowModal={setShowModal} showModal={showModal} />
         </Modal>
       ) : (
         <>
