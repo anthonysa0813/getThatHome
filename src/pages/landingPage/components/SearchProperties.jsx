@@ -20,22 +20,13 @@ const SearchProperties = ({ setShowModal, showModal }) => {
 
   return (
     <>
-      {showModal ? (
-        <Modal className="modal">
-          <LoginForm setShowModal={setShowModal} showModal={showModal} />
-        </Modal>
-      ) : (
-        <>
-          <Header setShowModal={setShowModal} />
-          <div className="wrapper">
-            <CardContainer className="cardContainer mt-1 ">
-              {properties.map((property) => {
-                return <CardBox property={property} />;
-              })}
-            </CardContainer>
-          </div>
-        </>
-      )}
+      <div className="wrapper">
+        <CardContainer className="cardContainer mt-1 ">
+          {properties.map((property) => {
+            return <CardBox property={property} />;
+          })}
+        </CardContainer>
+      </div>
     </>
   );
 };

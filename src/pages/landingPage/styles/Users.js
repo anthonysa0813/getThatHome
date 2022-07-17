@@ -1,15 +1,16 @@
 import styled from "styled-components";
 
 export const Modal = styled.div`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(97, 97, 97, 0.25);
+  background-color: rgba(97, 97, 97, 0.75);
   display: flex;
   justify-content: center;
   padding-top: 96px;
+  z-index: 1000;
 `;
 
 export const LoginFormContainer = styled.form`
@@ -23,6 +24,8 @@ export const LoginFormContainer = styled.form`
   width: 400px;
   gap: 0.5rem;
   position: relative;
+  z-index: 100;
+
   .close {
     position: absolute;
     top: calc(-15px);

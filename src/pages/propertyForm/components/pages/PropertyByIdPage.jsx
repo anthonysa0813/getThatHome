@@ -35,12 +35,6 @@ const PropertyByIdPage = () => {
 
   return (
     <>
-      {activeModal && (
-        <Modal className="modal ">
-          <LoginForm setShowModal={setActiveModal} />
-        </Modal>
-      )}
-      <Header />
       <div className="wrapper">
         <PropertyByIdContainer className="">
           <div className="col1 ">

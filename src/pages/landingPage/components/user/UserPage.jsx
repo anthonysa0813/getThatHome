@@ -8,16 +8,7 @@ const UserPage = ({ setShowModal, showModal }) => {
   console.log({ setShowModal });
   return (
     <>
-      {showModal ? (
-        <Modal className="modal ">
-          <LoginForm setShowModal={setShowModal} showModal={showModal} />
-        </Modal>
-      ) : (
-        <>
-          <Header setShowModal={setShowModal} />
-          <Register />
-        </>
-      )}
+      <Register />
     </>
   );
 };

@@ -6,7 +6,7 @@ import useFormRegister from "../../../user/hooks/useFormRegister";
 import { LoginFormContainer } from "../../styles/Users";
 import InputForm from "./InputForm";
 
-const LoginForm = ({ setShowModal, showModal }) => {
+const LoginForm = ({ setActiveModal, setShowModal, showModal }) => {
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -36,7 +36,7 @@ const LoginForm = ({ setShowModal, showModal }) => {
   };
 
   const showModalFunc = () => {
-    setShowModal(false);
+    setActiveModal((activeValue) => !activeValue);
     console.log({ setShowModal });
     console.log({ showModal });
   };
@@ -55,6 +55,7 @@ const LoginForm = ({ setShowModal, showModal }) => {
       setUser(userLogin);
       navigate("/properties");
       setShowModal(false);
+      setActiveModal(false);
     });
   };
 

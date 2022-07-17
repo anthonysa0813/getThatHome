@@ -12,20 +12,12 @@ function MainPage({ setShowModal, showModal }) {
   console.log({ setShowModal });
   return (
     <>
-      {showModal ? (
-        <Modal className="modal">
-          <LoginForm setShowModal={setShowModal} showModal={showModal} />
-        </Modal>
-      ) : (
-        <>
-          <Header setShowModal={setShowModal} />
-          <Search />
-          <Carousel />
-          <Poster />
-          <Team />
-          <Footer />
-        </>
-      )}
+      {/* <Header setShowModal={setShowModal} /> */}
+      <Search />
+      <Carousel />
+      <Poster />
+      <Team />
+      <Footer />
     </>
   );
 }
