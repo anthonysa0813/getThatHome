@@ -4,9 +4,11 @@ import { HeaderContainer } from "../styles/header";
 import Button from "./Button";
 import logo from "../../../assets/images/Logo.png";
 import { UserContext } from "../../user/context/UserContext";
+import { ModalContext } from "../../../context/modalActiveContext";
 
 const Header = ({ setShowModal }) => {
   const { user, setUser } = useContext(UserContext);
+  const { activeModal, setActiveModal } = useContext(ModalContext);
   const { name, type } = user;
 
   const userActive = Boolean(name);
@@ -16,6 +18,7 @@ const Header = ({ setShowModal }) => {
     setShowModal((modal) => {
       return !modal;
     });
+    setActiveModal(!activeModal);
   };
 
   const logoutFunc = () => {

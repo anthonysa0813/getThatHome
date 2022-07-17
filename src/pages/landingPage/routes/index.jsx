@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
+import CreatePropertyPage from "../../propertyForm/components/pages/CreatePropertyPage";
 import PropertyByIdPage from "../../propertyForm/components/pages/PropertyByIdPage";
 import SearchProperties from "../components/SearchProperties";
 import UserPage from "../components/user/UserPage";
@@ -25,6 +26,7 @@ const LandingRoutes = () => {
         }
       />
       <Route path="/properties/:id" element={<PropertyByIdPage />} />
+      <Route path="/properties/create" element={<CreatePropertyPage />} />
       {/* <Route path="/" element={<MainPage/>} />
       <Route path="/property" element={<PropertyFormPage/>}/> */}
     </Routes>

@@ -1,7 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { ModalContext } from "../../../../context/modalActiveContext";
 import Header from "../../../landingPage/components/Header";
+import LoginForm from "../../../landingPage/components/user/LoginForm";
 import { PropertyByIdContainer } from "../../../landingPage/styles/PropertiesStyles";
+import { Modal } from "../../../landingPage/styles/Users";
 import { PropertyContext } from "../../../user/context/PropertiesContext";
 import AgentBox from "../AgentBox";
 
@@ -10,6 +13,7 @@ const PropertyByIdPage = () => {
   const { propertiesArr, setPropertiesArr } = useContext(PropertyContext);
   const [propertyId, setPropertyId] = useState({});
   const [agentId, setAgentId] = useState({});
+  const { activeModal, setActiveModal } = useContext(ModalContext);
 
   useEffect(() => {
     const filterArr = propertiesArr.filter((property) => {
@@ -31,6 +35,11 @@ const PropertyByIdPage = () => {
 
   return (
     <>
+      {activeModal && (
+        <Modal className="modal ">
+          <LoginForm setShowModal={setActiveModal} />
+        </Modal>
+      )}
       <Header />
       <div className="wrapper">
         <PropertyByIdContainer className="">
@@ -80,7 +89,7 @@ const PropertyByIdPage = () => {
             </div>
           </div>
           <div className="col2 p-2">
-            <AgentBox agent={agentId} />
+            <AgentBox agent={agentId} setActiveModal={setActiveModal} />
           </div>
         </PropertyByIdContainer>
       </div>

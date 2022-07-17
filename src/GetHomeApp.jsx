@@ -6,6 +6,7 @@ import Header from "./pages/landingPage/components/Header";
 const GetHomeApp = () => {
   return (
     <BrowserRouter>
+      <Header />
       <LandingRoutes />
     </BrowserRouter>
   );

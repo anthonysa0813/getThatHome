@@ -108,3 +108,13 @@ mt-1 {
   width: 100%;
   display: block;
 }
+
+.d-flex {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+
+.direction-column {
+  flex-direction: column;
+}

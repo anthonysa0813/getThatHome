@@ -3,7 +3,7 @@ import Button from "./Button";
 
 function Poster() {
   return (
-    <PosterContainer className=" text-center">
+    <PosterContainer className=" text-center d-flex direction-column">
       <h3>Getting someone to rent your apartment has never been this easy</h3>
       <Button
         color="pink"

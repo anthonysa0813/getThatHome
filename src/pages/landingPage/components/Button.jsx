@@ -7,7 +7,7 @@ function Button({ color, text, iconName = "", extraClass = "" }) {
     <StyledButton className={`bg-${color} ${extraClass}`}>
       <Link to="/register">
         <i className={iconList[iconName]}></i>
-        {text}
+        <p>{text}</p>
       </Link>
     </StyledButton>
   );
