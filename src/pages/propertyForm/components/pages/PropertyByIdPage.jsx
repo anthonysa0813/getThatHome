@@ -7,6 +7,7 @@ import { PropertyByIdContainer } from "../../../landingPage/styles/PropertiesSty
 import { Modal } from "../../../landingPage/styles/Users";
 import { PropertyContext } from "../../../user/context/PropertiesContext";
 import AgentBox from "../AgentBox";
+import mapboxgl from "mapbox-gl"; // or "const mapboxgl = require('mapbox-gl');"
 
 const PropertyByIdPage = () => {
   const { id } = useParams();
@@ -24,6 +25,16 @@ const PropertyByIdPage = () => {
       }
     });
     setPropertyId(filterArr[0]);
+    mapboxgl.accessToken =
+      "pk.eyJ1IjoiYm10aDc0MSIsImEiOiJjbDVwcHMxd2Mwc210M2twY3RtZW54NHhwIn0.7axGHaqkEgQXeWn1BYMkOQ";
+    // const mapDiv = useRef(null);
+    const map = new mapboxgl.Map({
+      container: "map", // container ID
+      style: "mapbox://styles/mapbox/streets-v11", // style URL
+      center: [-74.5, 40], // starting position [lng, lat]
+      zoom: 9, // starting zoom
+      projection: "globe", // display the map as a 3D globe
+    });
   }, []);
 
   const getAgent = async (id) => {
@@ -81,6 +92,7 @@ const PropertyByIdPage = () => {
               <h4>Location</h4>
               <p>{propertyId.address}</p>
             </div>
+            <div id="map" className="map "></div>
           </div>
           <div className="col2 p-2">
             <AgentBox agent={agentId} setActiveModal={setActiveModal} />

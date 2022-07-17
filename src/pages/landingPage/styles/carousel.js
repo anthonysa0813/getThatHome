@@ -41,6 +41,10 @@ export const Card = styled.div`
     display: flex;
     justify-content: space-between;
   }
+  .map {
+    width: 100%;
+    height: 400px;
+  }
 `;
 
 export const IconBox = styled.div`

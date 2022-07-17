@@ -4,6 +4,11 @@ export const PropertyByIdContainer = styled.div`
   margin-block-start: 40px;
   display: grid;
   grid-template-columns: 70% 30%;
+  .map {
+    width: 100%;
+    height: 400px;
+    margin-block: 2rem;
+  }
   .boxImage img {
     height: 384px;
     object-fit: cover;
