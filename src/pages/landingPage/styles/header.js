@@ -22,6 +22,9 @@ export const HeaderContainer = styled.header`
     display: inline-block;
     margin-left: 0.5rem;
   }
+  /* a {
+    color: white;
+  } */
 `;
 
 export const StyledButton = styled.button`
@@ -35,7 +38,7 @@ export const StyledSearchBox = styled.form`
   margin-block-start: 64px;
   display: grid;
   column-gap: 8px;
-  width: 800px;
+  width: 900px;
   grid-template-columns: 18% 18% 50% 14%;
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
@@ -58,5 +61,8 @@ export const SearchInputStyle = styled.div`
   }
   select {
     width: 100%;
+    border: none;
+    background-color: white;
+    outline: none;
   }
 `;

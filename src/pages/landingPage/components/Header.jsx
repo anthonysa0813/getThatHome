@@ -60,12 +60,9 @@ const Header = ({ setShowModal }) => {
                 SAVE PROPERTIES
               </button>
             )}
-            <button
-              className="btn bg-pink border-radius"
-              onClick={showModalFunc}
-            >
+            <button className="btn bg-pink border-radius">
               <i className="icon-profile"></i>
-              PROFILE
+              <Link to="/properties/create">PROFILE</Link>
             </button>
           </>
         ) : (

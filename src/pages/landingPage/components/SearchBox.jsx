@@ -18,7 +18,7 @@ function SearchBox() {
         <SearchInput label="WHERE" options={[]} />
       </div>
       <div className="buttonContent">
-        <Button text="SEARCH" />
+        <Button text="SEARCH" color="pink" extraClass="text-white" />
       </div>
     </StyledSearchBox>
   );

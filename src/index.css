@@ -70,10 +70,17 @@ p {
 .text-center {
   text-align: center;
 }
+.text-white {
+  color: white !important;
+}
 
 .wrapper {
   width: 1296px;
   margin: 0 auto;
+}
+
+.wrapper-secondary {
+  width: 50%;
 }
 
 .py-1 {
@@ -117,4 +124,12 @@ mt-1 {
 
 .direction-column {
   flex-direction: column;
+}
+
+.color-gris {
+  color: var(--color-dark);
+}
+
+.text-medium {
+  font-size: 0.85rem;
 }
