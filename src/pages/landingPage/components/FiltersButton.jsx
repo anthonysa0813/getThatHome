@@ -1,10 +1,17 @@
-function FiltersButton({text, onClick}){
+import { useState } from "react";
+import TooltipBox from "./TooltipBox";
 
-  return(
-    <div onClick={onClick}>
-      {text}
-    </div>
-  )
+function FiltersButton({ text, onClick, children }) {
+  const [currentTooltipActive, setCurrentTooltipActive] = useState(false);
+
+  return (
+    <>
+      <div onClick={() => setCurrentTooltipActive(!currentTooltipActive)}>
+        {text}
+      </div>
+      {currentTooltipActive && <TooltipBox>{children}</TooltipBox>}
+    </>
+  );
 }
 
-export default FiltersButton
+export default FiltersButton;
