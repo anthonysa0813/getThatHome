@@ -9,7 +9,7 @@ const InputWithIcon = ({
 }) => {
   return (
     <>
-      <div className="input-container debug">
+      <div className="input-container">
         <i className={`icon-${iconType} color-gris`}></i>
         <input
           type="text"
