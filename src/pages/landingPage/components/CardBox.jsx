@@ -16,7 +16,10 @@ function CardBox({ property }) {
   } = property;
 
   return (
-    <Link to={`/properties/${id}`}>
+    <Link
+      to={`/properties/${id}`}
+      className={`animate__animated animate__jackInTheBox`}
+    >
       <Card>
         <span className="operationType">
           {operation_type === "rent" ? "For Rental" : "For Sale"}
