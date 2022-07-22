@@ -12,15 +12,27 @@ const SearchProperties = ({ setShowModal, showModal }) => {
   const [properties, setProperties] = useState([]);
   const { propertiesArr, setPropertiesArr } = useContext(PropertyContext);
   const [filters, setFilters] = useState({
-    minPrice: 1000,
-    maxPrice: 2000,
-    property_type: ["house", "apartment"],
-    beds: 4,
-    baths: 2,
-    pets: true,
-    minArea: 100,
-    maxArea: 200,
+    minPrice: "",
+    maxPrice: "",
+    property_type: "",
+    beds: "",
+    baths: "",
+    pets: "",
+    minArea: "",
+    maxArea: "",
+    search: "",
   });
+  const {
+    minPrice,
+    maxPrice,
+    property_type,
+    beds,
+    baths,
+    pets,
+    minArea,
+    maxArea,
+    search,
+  } = filters;
 
   useEffect(() => {
     getApi("properties").then((res) => {
@@ -28,7 +40,83 @@ const SearchProperties = ({ setShowModal, showModal }) => {
       setProperties(res);
       console.log(res);
     });
-  }, [filters]);
+  }, []);
+
+  useEffect(() => {
+    const filterArr = propertiesArr.filter((property) => {
+      const district = property.address.split("-");
+      if (
+        district[1]?.toLowerCase().trim().slice(0, 3) == search.toLowerCase()
+      ) {
+        console.log({ property });
+        return property;
+      }
+    });
+
+    setProperties(filterArr);
+    if (!search) {
+      getApi("properties").then((res) => {
+        setPropertiesArr(res);
+        setProperties(res);
+        console.log(res);
+      });
+    }
+  }, [search]);
+
+  useEffect(() => {
+    console.log("minPrice", minPrice);
+    const arrFilter = propertiesArr.filter((property) => {
+      const price = property.montly_price;
+      console.log({ price, minPrice });
+      if (Number(price) >= Number(minPrice)) {
+        return property;
+      }
+    });
+    console.log({ arrFilter });
+    setProperties(arrFilter);
+    if (!minPrice && !maxPrice) {
+      getApi("properties").then((res) => {
+        setPropertiesArr(res);
+        setProperties(res);
+        console.log(res);
+      });
+    }
+  }, [minPrice]);
+
+  useEffect(() => {
+    console.log({ maxPrice });
+    let arrFilter;
+
+    arrFilter = propertiesArr.filter((property) => {
+      const price = property?.montly_price;
+      return Number(price) <= Number(maxPrice);
+    });
+
+    setProperties(arrFilter);
+    if (!minPrice && !maxPrice) {
+      getApi("properties").then((res) => {
+        setPropertiesArr(res);
+        setProperties(res);
+        console.log(res);
+      });
+    }
+  }, [maxPrice]);
+
+  useEffect(() => {
+    const arrFilter = propertiesArr.filter((property) => {
+      if (property.property_type == property_type) {
+        return property;
+      }
+    });
+    setProperties(arrFilter);
+    if (!property_type) {
+      getApi("properties").then((res) => {
+        setPropertiesArr(res);
+        setProperties(res);
+        console.log(res);
+      });
+    }
+  }, [property_type]);
 
   return (
     <>
@@ -36,18 +124,7 @@ const SearchProperties = ({ setShowModal, showModal }) => {
         <Filters filters={filters} setFilters={setFilters} />
         <CardContainer className="cardContainer mt-1 ">
           {properties.map((property, index) => {
-            if (
-              property.bedrooms_count == filters.beds &&
-              property.bathroom_count == filters.baths &&
-              property.pets_allowed == filters.pets &&
-              property.montly_price >= filters.minPrice &&
-              property.montly_price <= filters.maxPrice &&
-              property.area >= filters.minArea &&
-              property.area <= filters.maxArea &&
-              filters.property_type.includes(property.property_type)
-            ) {
-              return <CardBox key={index} property={property} />;
-            }
+            return <CardBox key={index} property={property} />;
           })}
         </CardContainer>
       </div>

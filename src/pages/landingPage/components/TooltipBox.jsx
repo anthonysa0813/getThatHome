@@ -5,9 +5,10 @@ const StyledToolkit = styled.div`
   display: flex;
   flex-direction: column;
   padding: 10px;
-  box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
 
-  & button{
+  & button {
     background-color: hotpink;
     color: white;
     border: 0px;
@@ -17,7 +18,7 @@ const StyledToolkit = styled.div`
     margin: 10px 0px 5px 0px;
     align-self: end;
   }
-`
+`;
 
 const TooltipBox = ({ children }) => {
   return (
