@@ -8,17 +8,18 @@ const StyledContainer = styled.div`
   display: flex;
   flex-direction: column;
 
-  & .range-container{
+  & .range-container {
     display: flex;
     flex-direction: row;
-    & input{
+    & input {
       width: 50px;
-    }}
+    }
+  }
 
-  & .bed-bath-container{
+  & .bed-bath-container {
     display: flex;
     border-radius: 50px;
-    & div{
+    & div {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -27,8 +28,7 @@ const StyledContainer = styled.div`
       height: 40px;
     }
   }
-  }
-`
+`;
 function Filters({ filters, setFilters }) {
   function handlePriceButton() {
     if (filters.pets == true) {
@@ -39,9 +39,8 @@ function Filters({ filters, setFilters }) {
     console.log(filters.pets), console.log("Pets clicked");
   }
 
-  function handleClick(number){
-    setFilters({...filters, beds: number })
-
+  function handleClick(number) {
+    setFilters({ ...filters, beds: number });
   }
 
   return (
@@ -50,15 +49,15 @@ function Filters({ filters, setFilters }) {
         iconType="search"
         placeholder="Search by address"
         name="search"
-      /> 
+      />
       <div className="buttonJoin">
         <FiltersButton onClick={handlePriceButton} text="PRICE">
           <StyledContainer>
             <span>PRICE RANGE</span>
             <div className="range-container">
-              <InputWithIcon iconType='dollar' placeholder='min'/>
+              <InputWithIcon iconType="dollar" placeholder="min" />
               <p>&nbsp; to &nbsp;</p>
-              <InputWithIcon iconType='dollar' placeholder='max'/>
+              <InputWithIcon iconType="dollar" placeholder="max" />
             </div>
           </StyledContainer>
         </FiltersButton>
@@ -66,10 +65,12 @@ function Filters({ filters, setFilters }) {
           <StyledContainer>
             <span>PROPERTY TYPE</span>
             <div>
-              <input id='house' type='checkbox'/> <label htmlFor="house">Houses</label>
+              <input id="house" type="checkbox" />{" "}
+              <label htmlFor="house">Houses</label>
             </div>
             <div>
-              <input id='apartment' type='checkbox'/> <label htmlFor='apartment'>Apartments</label >
+              <input id="apartment" type="checkbox" />{" "}
+              <label htmlFor="apartment">Apartments</label>
             </div>
           </StyledContainer>
         </FiltersButton>
@@ -96,13 +97,14 @@ function Filters({ filters, setFilters }) {
         <FiltersButton text="MORE">
           <StyledContainer>
             <div>
-              <input id='pets' type='checkbox'/> <label htmlFor='pets'>Pets Allowed</label>
+              <input id="pets" type="checkbox" />{" "}
+              <label htmlFor="pets">Pets Allowed</label>
             </div>
             <span>AREA IN M2</span>
             <div className="range-container">
-              <input type='text' placeholder='min'/>
+              <input type="text" placeholder="min" />
               <p>&nbsp; to &nbsp;</p>
-              <input type='text' placeholder='max'/>      
+              <input type="text" placeholder="max" />
             </div>
           </StyledContainer>
         </FiltersButton>

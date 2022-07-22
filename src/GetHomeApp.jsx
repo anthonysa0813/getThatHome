@@ -24,7 +24,7 @@ const GetHomeApp = () => {
       <Header setShowModal={setActiveModal} />
 
       <LandingRoutes />
-      <Footer/>
+      {/* <Footer/> */}
     </BrowserRouter>
   );
 };
