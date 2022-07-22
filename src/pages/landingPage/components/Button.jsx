@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { iconList } from "../../../assets/icons/iconList";
 import { StyledButton } from "../styles/header";
 
-function Button({ color, text, iconName = "", extraClass = "" }) {
+function Button({ color, text, iconName = "", extraClass = "" ,onClick={}}) {
   return (
     <StyledButton className={`bg-${color} ${extraClass}`}>
       <Link to="/register">
