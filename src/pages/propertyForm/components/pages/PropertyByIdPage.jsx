@@ -8,6 +8,7 @@ import { Modal } from "../../../landingPage/styles/Users";
 import { PropertyContext } from "../../../user/context/PropertiesContext";
 import AgentBox from "../AgentBox";
 import mapboxgl from "mapbox-gl"; // or "const mapboxgl = require('mapbox-gl');"
+import FooterSecondary from "../../../../components/Footer";
 
 const PropertyByIdPage = () => {
   const { id } = useParams();
@@ -99,6 +100,7 @@ const PropertyByIdPage = () => {
           </div>
         </PropertyByIdContainer>
       </div>
+      <FooterSecondary />
     </>
   );
 };

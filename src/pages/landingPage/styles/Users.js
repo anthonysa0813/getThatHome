@@ -52,6 +52,8 @@ export const LoginFormContainer = styled.form`
 `;
 
 export const RegisterContainer = styled.div`
+  margin-block-end: 500px;
+
   .hero {
     height: 350px;
     background: rgba(244, 143, 177, 0.15);

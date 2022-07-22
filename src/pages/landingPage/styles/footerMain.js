@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const FooterMain = styled.footer`
   padding: 1rem;
   background-color: var(--bg-gray100);
+
   .footerContainer {
     display: flex;
     .field {
