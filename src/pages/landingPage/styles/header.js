@@ -42,27 +42,42 @@ export const StyledSearchBox = styled.form`
   grid-template-columns: 18% 18% 50% 14%;
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
-  .field {
+  & .field {
+    height: 56px;
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
-  .buttonContent {
+  & .buttonContent {
     display: flex;
     justify-content: center;
     align-items: center;
     height: auto;
+    margin: 0px 50px 0px 0px;
+    & a{
+      border-radius: 10px;
+    }
+  }
   }
 `;
 
 export const SearchInputStyle = styled.div`
   label {
     display: block;
+    padding: 7px 0px 3px 0px;
   }
   select {
+    margin: 3px 0px 0px 10px;
     width: 100%;
     border: none;
     background-color: white;
     outline: none;
+    font-size: 16px;
   }
+  input{
+    border: 0px;
+    width: 70%;
+    height: 24px;
+  }
+
 `;
