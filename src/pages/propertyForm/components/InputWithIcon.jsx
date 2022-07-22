@@ -1,6 +1,12 @@
 import React from "react";
 
-const InputWithIcon = ({ iconType, placeholder, name, value = "" }) => {
+const InputWithIcon = ({
+  iconType,
+  placeholder,
+  name,
+  value = "",
+  onChange,
+}) => {
   return (
     <>
       <div className="input-container debug">
@@ -10,6 +16,7 @@ const InputWithIcon = ({ iconType, placeholder, name, value = "" }) => {
           placeholder={placeholder}
           name={name}
           value={value}
+          onChange={onChange}
         />
       </div>
     </>

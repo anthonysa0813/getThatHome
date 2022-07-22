@@ -6,11 +6,14 @@ export const PropertyCreateContainer = styled.form`
     display: flex;
     flex-direction: column;
     row-gap: 0.25rem;
+
     .col {
       display: flex;
       flex-direction: column;
-      select {
+      select,
+      input {
         padding: 8px;
+        margin-block-start: 0.25rem;
         border: 1px solid var(--color-pink100);
         background-color: var(--white);
         border-radius: 8px;
@@ -33,6 +36,10 @@ export const PropertyCreateContainer = styled.form`
       input {
         background-color: var(--color-pink100);
       }
+    }
+    .optionBox {
+      display: flex;
+      column-gap: 1rem;
     }
   }
   .grid-column {
@@ -72,6 +79,9 @@ export const PropertyCreateContainer = styled.form`
     column-gap: 8px;
     input {
       border: none;
+      display: block;
+      width: 100%;
+      outline: none;
     }
     border: 1px solid var(--color-pink100);
   }
@@ -81,13 +91,20 @@ export const PropertyCreateContainer = styled.form`
     display: flex;
     align-items: center;
     padding: 8px;
+
     border-radius: 8px;
-    .miniPhoto {
+    .miniPhoto,
+    .boxImage {
       width: 120px;
       border-radius: 8px;
 
       height: 120px;
       background-color: #e1e2e1;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
     }
   }
   padding-block: 2rem;

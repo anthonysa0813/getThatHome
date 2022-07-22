@@ -51,7 +51,7 @@ p {
 }
 
 .bg-pink {
-  background-color: var(--color-pink100);
+  background-color: var(--color-pink100) !important;
   color: var(--color-white);
   padding: 10px;
   display: flex;
