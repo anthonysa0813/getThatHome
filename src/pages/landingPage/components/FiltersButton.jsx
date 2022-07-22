@@ -5,7 +5,9 @@ import styled from "styled-components";
 const ButtonContainer = styled.div`
   display: flex;
   flex-direction: column;
-  & .button{
+  position: relative;
+  row-gap: 1rem;
+  & .button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,14 +17,17 @@ const ButtonContainer = styled.div`
     width: 135px;
     border-radius: 50px;
   }
-`
+`;
 
 function FiltersButton({ text, onClick, children }) {
   const [currentTooltipActive, setCurrentTooltipActive] = useState(false);
 
   return (
     <ButtonContainer>
-      <div className='button' onClick={() => setCurrentTooltipActive(!currentTooltipActive)}>
+      <div
+        className="button"
+        onClick={() => setCurrentTooltipActive(!currentTooltipActive)}
+      >
         {text}
       </div>
       {currentTooltipActive && <TooltipBox>{children}</TooltipBox>}
