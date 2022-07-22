@@ -5,6 +5,7 @@ import { UserContext } from "../../../user/context/UserContext";
 import useFormRegister from "../../../user/hooks/useFormRegister";
 import { LoginFormContainer } from "../../styles/Users";
 import InputForm from "./InputForm";
+import toast, { Toaster } from "react-hot-toast";
 
 const LoginForm = ({ setActiveModal, setShowModal, showModal }) => {
   const [form, setForm] = useState({
@@ -15,6 +16,8 @@ const LoginForm = ({ setActiveModal, setShowModal, showModal }) => {
   const { email, password } = form;
   const { user, setUser } = useContext(UserContext);
   const navigate = useNavigate();
+  const [loggedUser, setLoggedUser] = useState(false);
+  const notify = () => toast.success("Are you logged successfully!");
 
   const loginMethod = async (user) => {
     const response = await fetch(`http://127.0.0.1:3000/login`, {
@@ -56,6 +59,7 @@ const LoginForm = ({ setActiveModal, setShowModal, showModal }) => {
       navigate("/properties");
       setShowModal(false);
       setActiveModal(false);
+      setLoggedUser(true);
     });
   };
 
@@ -88,10 +92,15 @@ const LoginForm = ({ setActiveModal, setShowModal, showModal }) => {
           handleChange={handleChange}
         />
       </div>
-      <button className="btn bg-pink border-radius" type="submit">
+      <button
+        className="btn bg-pink border-radius"
+        type="submit"
+        onClick={notify}
+      >
         <i className="icon-login"></i>
         Login
       </button>
+      {loggedUser && <Toaster />}
     </LoginFormContainer>
   );
 };

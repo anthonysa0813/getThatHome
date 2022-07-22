@@ -2,6 +2,9 @@ import React, { useContext, useEffect, useState } from "react";
 import { ModalContext } from "../../../context/modalActiveContext";
 import { UserContext } from "../../user/context/UserContext";
 import { BoxAgent } from "../styles/PropertyAtoms";
+import toast, { Toaster } from "react-hot-toast";
+
+const notify = () => toast.success("Added to favorite <3");
 
 const AgentBox = ({ agent, setActiveModal }) => {
   const [estatusFav, setEstatusFav] = useState(false);
@@ -15,6 +18,7 @@ const AgentBox = ({ agent, setActiveModal }) => {
   const estatusFacFunc = (agent) => {
     console.log(agent);
     setEstatusFav(!estatusFav);
+    notify();
   };
 
   useEffect(() => {
@@ -78,6 +82,7 @@ const AgentBox = ({ agent, setActiveModal }) => {
           </div>
         </BoxAgent>
       )}
+      <Toaster />
     </>
   );
 };

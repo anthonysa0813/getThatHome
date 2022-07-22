@@ -9,6 +9,7 @@ import { PropertyContext } from "../../../user/context/PropertiesContext";
 import AgentBox from "../AgentBox";
 import mapboxgl from "mapbox-gl"; // or "const mapboxgl = require('mapbox-gl');"
 import FooterSecondary from "../../../../components/Footer";
+import toast, { Toaster } from "react-hot-toast";
 
 const PropertyByIdPage = () => {
   const { id } = useParams();
@@ -16,6 +17,7 @@ const PropertyByIdPage = () => {
   const [propertyId, setPropertyId] = useState({});
   const [agentId, setAgentId] = useState({});
   const { activeModal, setActiveModal } = useContext(ModalContext);
+  const notify = () => toast("favorite <3");
 
   useEffect(() => {
     const filterArr = propertiesArr.filter((property) => {
