@@ -5,6 +5,7 @@ import Header from "./pages/landingPage/components/Header";
 import { ModalContext } from "./context/modalActiveContext";
 import { Modal } from "./pages/landingPage/styles/Users";
 import LoginForm from "./pages/landingPage/components/user/LoginForm";
+import Footer from "./components/Footer";
 
 const GetHomeApp = () => {
   const { activeModal, setActiveModal } = useContext(ModalContext);
@@ -23,6 +24,7 @@ const GetHomeApp = () => {
       <Header setShowModal={setActiveModal} />
 
       <LandingRoutes />
+      <Footer/>
     </BrowserRouter>
   );
 };

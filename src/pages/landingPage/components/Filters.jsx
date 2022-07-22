@@ -29,10 +29,6 @@ const StyledContainer = styled.div`
   }
   }
 `
-
-
-
-
 function Filters({ filters, setFilters }) {
   function handlePriceButton() {
     if (filters.pets == true) {
@@ -82,7 +78,7 @@ function Filters({ filters, setFilters }) {
             <span>BEDS</span>
             <div className="bed-bath-container">
               <div>Any</div>
-              <div onClick={console.log('clicked')}>1+</div>
+              <div>1+</div>
               <div>2+</div>
               <div>3+</div>
               <div>4+</div>
