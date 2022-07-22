@@ -7,6 +7,8 @@ import Image from "../Image";
 import Message from "../../../../components/Message";
 import { UserContext } from "../../../user/context/UserContext";
 import { createProperty } from "../../helpers/createProperty";
+import toast, { Toaster } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const CreatePropertyPage = () => {
   const [activeOpType, setActiveOpType] = useState(true);
@@ -14,6 +16,14 @@ const CreatePropertyPage = () => {
   const [error, setError] = useState(false);
   const { user } = useContext(UserContext);
   const token = sessionStorage.getItem("token");
+  const navigate = useNavigate();
+  const notify = () => {
+    if (error == false) {
+      return toast.error("Todos los campos son obligatorios");
+    } else {
+      return toast.success("Property añadido");
+    }
+  };
 
   console.log({ user, token });
 
@@ -118,7 +128,12 @@ const CreatePropertyPage = () => {
       return false;
     }
     setError(false);
-    createProperty(form, "properties", token).then((res) => console.log(res));
+    createProperty(form, "properties", token).then((res) => {
+      console.log(res);
+      setTimeout(() => {
+        navigate("/properties");
+      }, 3000);
+    });
   };
 
   return (
@@ -266,10 +281,11 @@ const CreatePropertyPage = () => {
             <div className="miniPhoto">{photo && <Image url={photo} />}</div>
           </div>
         </div>
-        <button type="submit" className="btn border-radius">
+        <button type="submit" className="btn border-radius" onClick={notify}>
           Publish property listing
         </button>
       </PropertyCreateContainer>
+      <Toaster />
     </div>
   );
 };
